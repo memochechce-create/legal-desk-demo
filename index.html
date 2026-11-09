@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Legal Desk · Демонстрация</title>
+  <link rel="stylesheet" href="./style.css?v=2">
+  <script src="./app.js?v=2" type="module"></script>
+</head>
+<body>
+  <header class="top">
+    <div class="brand"><span class="mark" aria-hidden="true">§</span><span>LEGAL DESK<small>Работа с документами</small></span></div>
+    <div class="top-status"><span class="demo-badge">Демо</span><span id="mode">Загрузка базы…</span></div>
+  </header>
+  <main class="workbench">
+    <aside class="sidebar" id="history-panel" aria-labelledby="history-heading">
+      <div class="sidebar-top">
+        <h2 id="history-heading" class="rail-heading" tabindex="-1">Диалоги</h2>
+        <button type="button" class="new" id="new"><span aria-hidden="true">＋</span> Новый диалог</button>
+      </div>
+      <div id="history" class="history"></div>
+      <div class="sidebar-foot"><span>История хранится в этой вкладке</span><button type="button" id="clear" class="quiet">Очистить историю</button></div>
+    </aside>
+    <section class="conversation" id="chat-panel" aria-labelledby="chat-heading">
+      <div class="chat-toolbar">
+        <h2 id="chat-heading" tabindex="-1">Чат по документам</h2>
+      </div>
+      <div id="thread" class="thread">
+        <div class="thread-inner">
+          <div class="welcome" id="welcome">
+            <div class="welcome-card">
+              <div class="hero-scene" aria-hidden="true">
+                <div class="scene-grid"></div>
+                <span class="scene-axis axis-one">+</span><span class="scene-axis axis-two">+</span><span class="scene-axis axis-three">+</span>
+                <div class="legal-tile tile-document">
+                  <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 7h16l8 8v26H12zM28 7v9h8M18 23h12M18 29h12M18 35h8"/>
+                  </svg>
+                </div>
+                <div class="legal-tile tile-scales">
+                  <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M24 7v32M15 40h18M9 15h30M11 15l-6 13h12zM37 15l-6 13h12z"/>
+                  </svg>
+                </div>
+                <div class="legal-tile tile-section">§</div>
+              </div>
+              <span class="eyebrow chapter"><span aria-hidden="true">00</span> Учебная база</span>
+              <h1>Найдите<br>нужный пункт.</h1>
+              <p>Задайте вопрос своими словами. Откройте подходящий пункт в тексте договора или регламента.</p>
+            </div>
+            <h2 class="examples-heading">Попробуйте готовый вопрос</h2>
+            <div class="examples">
+              <button type="button" data-example="Какая арендная плата по договору с ООО «Демо Склад» и до какого числа её нужно вносить?"><span class="example-icon" aria-hidden="true">01</span><b>Договор аренды</b><span>Сумма и срок оплаты</span><span class="example-arrow" aria-hidden="true">↗</span></button>
+              <button type="button" data-example="Договор на 12 млн рублей заключали в августе 2024 года. Нужно ли было одобрение генерального директора?"><span class="example-icon" aria-hidden="true">02</span><b>Редакция на дату</b><span>Согласование в августе 2024</span><span class="example-arrow" aria-hidden="true">↗</span></button>
+              <button type="button" data-example="Какой размер пособия по беременности и родам?"><span class="example-icon" aria-hidden="true">03</span><b>Вопрос вне базы</b><span>Что будет, если данных нет</span><span class="example-arrow" aria-hidden="true">↗</span></button>
+            </div>
+          </div>
+          <div id="messages"></div>
+        </div>
+      </div>
+      <form id="composer">
+        <div class="composer-inner">
+          <label class="sr-only" for="question">Вопрос по учебной базе</label>
+          <div class="input-box">
+            <textarea id="question" rows="2" maxlength="9000" placeholder="Спросите по документам…"></textarea>
+            <button type="submit" id="submit" aria-label="Отправить вопрос" disabled><span class="submit-label">Отправить</span><span aria-hidden="true">↑</span></button>
+          </div>
+          <div class="composer-caption"><span>Документы и примеры вымышлены</span><span class="keyboard-hint"><kbd>Enter</kbd> отправить · <kbd>Shift</kbd> + <kbd>Enter</kbd> новая строка</span></div>
+        </div>
+      </form>
+      <p class="sr-only" id="chat-status" role="status"></p>
+    </section>
+    <aside class="evidence" id="sources-panel" aria-labelledby="sources-heading">
+      <div class="evidence-head">
+        <div><span class="eyebrow">Проверка по документам</span><h2 id="sources-heading" tabindex="-1">Источники</h2></div>
+        <span id="count" class="count">0</span>
+      </div>
+      <div id="evidence"></div>
+    </aside>
+  </main>
+</body>
+</html>
+
